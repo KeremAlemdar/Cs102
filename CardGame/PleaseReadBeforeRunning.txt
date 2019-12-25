@@ -1,0 +1,3 @@
+When you open the project, run project will run the CardGameTest.java.
+To run MyCardGame.java right click it from DrJava and select Run File.
+I have added some extra options and features to the program to make it easier to show the results.

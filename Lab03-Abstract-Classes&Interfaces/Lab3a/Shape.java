@@ -1,0 +1,30 @@
+/* Author: Kerem Alemdar
+ * date: 31.10.2019
+ */
+public abstract class Shape implements Locatable{
+ 
+ abstract double getArea();
+ double x = 0;
+ double y = 0;
+ 
+ @Override
+ public double getX() {
+  return x;
+ }
+
+ @Override
+ public double getY() {
+  return y;
+ }
+
+ @Override
+ public void setLocation(double x, double y) {
+  this.x = x;
+  this.y = y;
+  
+ }
+ 
+ 
+
+ 
+}

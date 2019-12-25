@@ -1,0 +1,26 @@
+import cs1.SimpleURLReader;
+
+public class MySimpleURLReader extends SimpleURLReader {
+  
+  String urlname;
+  public MySimpleURLReader(String s) {
+    super(s);
+    urlname = s;
+  }
+  
+  public String getURL() {
+    return urlname;
+  }
+  
+  public String getName() {
+    int lastindex = urlname.lastIndexOf('/');
+    return urlname.substring(lastindex +1 ,urlname.length());
+  }
+  
+  public String getPageContents() {
+    String str = super.getPageContents();
+    int index = str.indexOf("null");
+    return str.substring(index+4 , str.length());
+  }
+  
+}

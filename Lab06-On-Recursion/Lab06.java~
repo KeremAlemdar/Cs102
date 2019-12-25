@@ -1,0 +1,93 @@
+import java.util.ArrayList;
+
+
+public class Lab06 {
+  
+  public static void main (String [] args) {
+    
+    String a = "recursive";
+    int b = 1249;
+    ArrayList<String> c1 = new ArrayList<>();
+    c1.add("a");
+    c1.add("b");
+    c1.add("c");
+    ArrayList<String> c2 = new ArrayList<>();
+    c2.add("Ýsmet");
+    c2.add("Ahmet");
+    c2.add("Mustafa");
+    int d = 4;
+    int start = (int)Math.pow(10,d-1);
+    
+    System.out.println("A");
+    methoda(a);
+    System.out.println("B");
+    methodb(b);
+    System.out.println();
+    System.out.println("C1");
+    methodc(c1);
+    System.out.println("C2");
+    methodc(c2);
+    System.out.println("D");
+    methodd(d,start);
+  }
+  
+  public static void methoda(String a) {
+    int index = a.indexOf("r");
+    if (index == -1) {
+      System.out.println(a);
+    }
+    else {
+      a = a.substring(0,index) + a.substring(index+1,a.length());
+      methoda(a);
+    }
+  }
+  
+  public static void methodb(int b) {
+    String[] hexadecimals = new String[]{"1","2","3","4","5","6","7","8","9","A","B","C","D","E"};
+    if ( (b/16) < 1 ) {
+      System.out.print(hexadecimals[(b%16)-1]);
+    }
+    else {
+      int m = b%16;
+      methodb(b/16);
+      System.out.print(hexadecimals[m-1]);
+    }
+  }
+  public static void methodc(ArrayList<String> c) {
+    if(c.size() < 2) {
+      System.out.println(true);
+    }
+    else {
+      if(c.get(0).compareTo(c.get(1)) > 0) {
+        System.out.println(false);
+      }
+      else{
+        c.remove(0);
+        methodc(c);
+      }
+    }
+  }
+  public static void methodd(int d,int start) {
+    if ( start > (int)Math.pow(10,d)) {
+    }
+    else {
+      if(criteria(start)) {
+        System.out.println(start);
+        methodd(d,start+2);
+      }
+      else {
+        methodd(d,start+2);
+      }
+    }
+}
+  public static boolean criteria(int m) {
+    String number = String.valueOf(m);
+    boolean result = true;
+    for (int i = 0; i < number.length()-1; i++) {
+      if(Integer.valueOf(number.charAt(i)) > Integer.valueOf(number.charAt(i+1))) {
+        result = false;
+      }
+    }
+    return result;
+  }
+}

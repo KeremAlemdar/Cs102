@@ -1,0 +1,3 @@
+Hangman game is working.
+I first put all of them together except HangmanApp.java.
+Then I corrected minor differences,  in one they wrote "Num" but other group wrote "Number". Or some "char" - "String" differences , or changing "TryLetter" to "TryThis". I do this type of things for almost 30 minutes. After I corrected those it worked.

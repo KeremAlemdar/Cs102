@@ -1,0 +1,108 @@
+import java.awt.*;
+import cs101.sosgame.SOS;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JLabel;
+import java.awt.event.MouseMotionListener;
+import javax.swing.JFrame;
+import javax.swing.JRadioButton;
+
+public class SOSGUIPanel extends JPanel {
+   
+   SOS game1;
+   SOS game2;
+   String player1;
+   String player2;
+   String player3;
+   String player4;
+   SOSCanvas visual1;
+   SOSCanvas visual2;
+   int startx;
+   int starty;
+   int blocksize = 80;
+   JPanel panel;
+   JRadioButton button1;
+   JRadioButton button2;
+   JRadioButton button3;
+   JRadioButton button4;
+   JLabel label1;
+   JLabel label2;
+   JLabel label3;
+   JLabel label4;
+   
+   MouseListener listener = new MouseClicker();
+   public SOSGUIPanel(SOS a, SOS b, String p1, String p2 ,String p3, String p4) {
+      button1 = new JRadioButton("S");
+      button2 = new JRadioButton("O");
+      button3 = new JRadioButton("S");
+      button4 = new JRadioButton("O");
+      label1 = new JLabel(p1);
+      label2 = new JLabel(p2);
+      label3 = new JLabel(p3);
+      label4 = new JLabel(p4);
+      game1 = a;
+      game2 = b;
+      player1 = p1;
+      player2 = p2;
+      starty = 50;
+      panel = new JPanel();
+      panel.add(label1);
+      panel.add(button1);
+      panel.add(button2);
+      panel.add(label2);
+      
+      panel.add(label3);
+      panel.add(button3);
+      panel.add(button4);
+      panel.add(label4);
+      visual1 = new SOSCanvas(game1,50,starty);
+      startx = ((game1.getDimension()*80) + 100);
+      visual2 = new SOSCanvas(game2,startx,starty);
+      addMouseListener(new MouseClicker());
+      add(panel);
+   }
+   public void paintComponent(Graphics g) {
+      super.paintComponent(g);
+      visual1.paintComponent(g);
+      visual2.paintComponent(g);
+   }
+   
+   class MouseClicker implements MouseListener {
+      
+      @Override
+      public void mouseClicked (MouseEvent e) {
+         
+         int x = e.getX();
+         int y = e.getY();
+         int row;
+         int col;
+         if ( x < game1.getDimension()*80 +50 ) {
+            row = (y-50)/blocksize;
+            col = (x-50)/blocksize;
+            game1.play('s',row+1,col+1);
+            game1.printBoard();
+         }
+         else {
+            row = (y-50)/blocksize;
+            col = (x-startx)/blocksize;
+            game2.play('s',row+1,col+1);
+            game2.printBoard();
+         }
+         System.out.println("anan " + x);
+      }
+      @Override
+      public void mousePressed(MouseEvent e) {
+      }
+      @Override
+      public void mouseReleased(MouseEvent e) {
+      }
+      @Override
+      public void mouseEntered(MouseEvent e) {
+      }
+      @Override
+      public void mouseExited(MouseEvent e) {
+      }
+   }
+}

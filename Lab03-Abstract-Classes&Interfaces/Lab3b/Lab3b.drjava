@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20160913-225446">
+  <project autorefresh="false" main="" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file active="true" name="TestIterators.java" package="" timestamp="31-Oct-2019 14:15:33">
+        <select from="26" to="27"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Intbag.java" package="" timestamp="31-Oct-2019 14:06:03">
+        <select from="26" to="27"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="IntBagIterator.java" package="" timestamp="31-Oct-2019 13:51:21">
+        <select from="26" to="27"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>

@@ -1,0 +1,35 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Menu {
+  public static void main (String [] args) {
+    
+    IntBag collection = new IntBag();
+    Scanner scan = new Scanner(System.in);
+    int value;
+    
+    do {
+      System.out.println("1. Create a new empty collection");
+      System.out.println("2. Read a set of positive values into the collection");
+      System.out.println("3. Print the collection of values");
+      System.out.println("4. Add a value to the collection of values at a specified location");
+      System.out.println("5. Remove the value at a specified location from the collection of values");
+      System.out.println("6. Remove all instances of a value within the collection");
+      System.out.println("7. Quit the program");
+      value = scan.nextInt();
+      if (value == 1 ) {
+         collection.removeAll();
+         System.out.println("New collection has been created \n");
+      }
+      if (value == 2 ) {
+         int next = scan.nextInt();
+         while (next != 0 ) {
+            collection.addValue(next);
+            next = scan.nextInt();
+         }
+      }
+      if (value == 3 ) {
+      }
+    }while (value != 7);
+  }
+}
